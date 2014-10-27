@@ -5,8 +5,10 @@ set :num, rand(100)
 
 get '/' do
   guess    = params['guess']
+  cheat    = params['cheat']
   @color   = 'red'
   @message = check_guess(guess)
+  @answer  = settings.num if cheat == "true"
 
   erb :index
 end
